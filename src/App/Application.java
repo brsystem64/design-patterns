@@ -7,6 +7,8 @@ import Behavioral.ChainOfResponsability.NotaDezHandler;
 import Behavioral.ChainOfResponsability.NotaDoisHandler;
 import Behavioral.ChainOfResponsability.NotaUmHandler;
 import Behavioral.ChainOfResponsability.NotaVinteHandler;
+import Behavioral.Iterator.Pessoa;
+import Behavioral.Iterator.PessoaIterator;
 import Behavioral.Strategy.CalculadoraImpostos;
 import Behavioral.Strategy.ICMS;
 import Behavioral.Strategy.IPI;
@@ -14,7 +16,26 @@ import Behavioral.Strategy.IPI;
 public class Application {
 
 	public static void main(String[] args) {
-		Application.chainOfResponsability();
+
+		/*
+		 * Altere o metodo para o padrao que deseja executar
+		 * Exemplo: Application.strategy();
+		 */
+		Application.iterator();
+	}
+	
+	public static void iterator() {
+		Pessoa[] pessoas = new Pessoa[4];
+		
+		pessoas[0] = new Pessoa("Jonas");
+		pessoas[1] = new Pessoa("Augusto");
+		pessoas[2] = new Pessoa("Maria");
+		pessoas[3] = new Pessoa("Clara");
+		
+		PessoaIterator iterator = new PessoaIterator(pessoas);
+		while(iterator.hasNext()) {
+			System.out.println(iterator.next().getNome());
+		}
 	}
 	
 	public static void strategy() {
