@@ -12,16 +12,32 @@ import Behavioral.Iterator.PessoaIterator;
 import Behavioral.Strategy.CalculadoraImpostos;
 import Behavioral.Strategy.ICMS;
 import Behavioral.Strategy.IPI;
+import Creational.FactoryMethod.BaseFactory;
+import Creational.FactoryMethod.HamburguerFactory;
+import Creational.FactoryMethod.HotDogFactory;
+import Creational.FactoryMethod.Produto;
 
 public class Application {
-
+	
 	public static void main(String[] args) {
-
 		/*
 		 * Altere o metodo para o padrao que deseja executar
 		 * Exemplo: Application.strategy();
 		 */
-		Application.iterator();
+		Application.abstractFactory();
+	}
+	
+	public static void abstractFactory() {
+		Produto produto;
+		
+		BaseFactory factory1 = new HotDogFactory();
+		BaseFactory factory2 = new HamburguerFactory();
+		
+		produto = factory1.criar();
+		produto.mostrarIngredientes();
+
+		produto = factory2.criar();
+		produto.mostrarIngredientes();
 	}
 	
 	public static void iterator() {
